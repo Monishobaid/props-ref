@@ -1,7 +1,9 @@
 <script setup>
 import {ref, reactive} from "vue";
 import parent from "./components/parent.vue";
-
+import ProductTable from './components/ProductTable.vue';
+import MyPostParent from "./components/MyPostParent.vue";
+import OneWayParent from "./components/OneWayParent.vue";
 
 // const red = ref(20);
 // const green = ref(200);
@@ -26,7 +28,7 @@ const color2 = reactive({
 const changestate = ()=>{
   color2.red = 166;
   color2.blue = 200;
-  color3.green = 500;
+  color2.green = 500;
 }
 const nums = ref([1,2,3,4,5,"vicious cycle"])
 </script>
@@ -39,14 +41,24 @@ const nums = ref([1,2,3,4,5,"vicious cycle"])
       <input type="number" v-model= "color2.green" placeholder="green">
       <button @click="changestate">random color</button>
     </div>
-    <div> 
+    <div class="card">
+      <ProductTable />
+    </div>
+    <div class=""> 
       {{ nums }}
       <parent :nums="nums"/>
+    </div>
+    <div>
+      <MyPostParent/>
+    </div>
+    <div>
+      <OneWayParent/>
     </div>
   </main>
 </template>
 
 <style scoped>
+
 div{
   display: flex;
   flex-direction: column;

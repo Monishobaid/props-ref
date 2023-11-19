@@ -1,5 +1,4 @@
 <script setup>
-import {ref, reactive} from "vue";
 import child from "./child.vue"
 import { defineProps } from "vue";
 
